@@ -11,3 +11,4 @@ const user: { firstname: string; lastname: string } = {
 const check: Function = (e: MouseEvent) => {
   return console.log("clicked");
 };
+/****************************************** */
