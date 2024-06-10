@@ -4,7 +4,7 @@ const a = "firstname";
 const b = 3;
 const arr = ["ar", "rar", "3"];
 const date = new Date();
-const user = {
+const userTest = {
     firstname: "john",
     lastname: "drew",
 };
