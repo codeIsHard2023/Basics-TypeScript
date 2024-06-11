@@ -36,3 +36,11 @@ function argSize(arg) {
     return arg;
 }
 const bbb = argSize(["3qsdf", "qgqdsg"]);
+/******** readonly ********/
+// readonly est un le mot-clé qui permet de spécifier qu'une propriété d'un objet ne peut pas être modifié une fois initialisée
+// ici arr est en lecture seule, on ne doit pas modifier le tableau.
+// si on veut retourner un nouveau tableau en utilisant reverse() (qui modifie le tableau) on est obligé d'initaliser un nouveau tableau
+function reverse(arr) {
+    return [...arr].reverse();
+}
+console.log(reverse([1, 2, 3, 4, "4"]));
