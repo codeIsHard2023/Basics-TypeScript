@@ -1,7 +1,7 @@
 /******** Class in TypeScript ********/
 
-// Les classes ont des propriétés et TypeScript analyse notre code et détermine les types des propriétés automatiquement
-// Pour les propriétés des classes, on peut ajouter des modificateurs pour spécifier la visibilité : private, protected, public
+// Les classes ont des propriétés. TypeScript analyse notre code et détermine les types des propriétés automatiquement.
+// Pour les propriétés des classes, on peut ajouter des modificateurs pour spécifier la visibilité : private, protected, public.
 // private, protected et public ont du sens seulement en TypeScript, on ne les voit pas dans le JavaScript mais ça permet aux autres développeurs de voir quelles propriétés dans nos classes sont publiques ou privées
 
 // A : private signifie que la propriété est accessible seulement dans la classe
@@ -69,6 +69,72 @@ class Collection<Type> {
   }
 }
 
-const c = new Collection([1, 2, 3]); // à partir de constructor TS va comprendre le type de Type et fera la référence à number dans notre cas
+const c = new Collection([1, 2, 3]); // à partir de constructor TS va comprendre le type de Type et dans notre cas fera la référence à number
 const cC = c.first(); // va nous renvoyer number ou null
+
+// Class members
+class Point {
+  x: number;
+  y: number;
+  constructor() {
+    // on est obligé d'initializer les valeurs des paramètres
+    this.x = 0;
+    this.y = 0;
+  }
+}
+
+const pt1 = new Point();
+pt1.x = 1;
+pt1.y = 2;
+
+const pt2 = new Point();
+pt2.x = 3;
+pt2.y = 4;
+
+console.log(pt1);
+console.log(pt2);
+
+// Constructors
+// Très similaires aux fonctions. On peut rajouter des paramètres avec les annotations, les types etc.
+
+class Coordinate {
+  x: number;
+  y: number;
+
+  // signature sans erreurs
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+class CoordinateOverloads {
+  x: number = 0;
+  y: number = 0;
+
+  // Constructor overloads
+  constructor(x: number, y: number);
+  constructor(xy: string);
+  constructor(x: string | number, y: number = 0) {
+    // logic du code ici
+  }
+}
+
+// il est important de faire l'appel à super() avant d'utiliser this.
+// Example avec erreur
+// class Child1Coordinate extends Coordinate {
+//   constructor() {
+//     console.log(this.x);
+//   }
+//   super();
+// }
+
+//Example sans erreur
+class Child2Coordinate extends Coordinate {
+  constructor() {
+    super();
+    console.log(this.x);
+  }
+}
+
 /************************************/

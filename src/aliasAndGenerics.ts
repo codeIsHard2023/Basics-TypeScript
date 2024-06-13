@@ -1,4 +1,4 @@
-/****** alias aidend à créer les types réutilisables et pour se simplifier la vie pour le travail avec des types complexes et d'éviter la répetition******/
+/****** alias aident à créer les types réutilisables et pour se simplifier la vie pour le travail avec des types complexes et d'éviter la répetition******/
 
 type User = {
   id: Id;
@@ -19,7 +19,7 @@ const user: User = {
 console.log(user);
 /****** ****************************************** ******/
 
-/****** Generics aide aussi à créer les types réutilisables avec des paramètres de type en plus ******/
+/****** Generics aident aussi à créer les types réutilisables avec des paramètres de type en plus ******/
 /*** Il existe des generics comme Array, querySelector etc mais on peut également créer nos propres générics */
 // si on ne spécifie pas les types dans la fonction on aura ce qu'on aura
 // function identity(arg: any): any {
@@ -37,7 +37,7 @@ const aa = identity<string>("3"); // ici on précise que IdentityType sera de ty
 
 const aaa: Array<string | number> = identity(["abc", "cde", 3]); // ici on précise que IdentityType sera un type generic Array de type string ou number. C'est équivalent à (string | number)[]
 
-/** Generics permettet d'avoir des paramètres dans nos types  */
+/** Generics permettent d'avoir des paramètres dans nos types  */
 
 // Si on met rien TS va quand même déduire le type
 const aaaa = identity("3");
@@ -73,7 +73,7 @@ type UserName1 = UserExample["lastname"];
 type UserName2 = keyof UserExample;
 
 /******** readonly ********/
-// readonly est un le mot-clé qui permet de spécifier qu'une propriété d'un objet ne peut pas être modifié une fois initialisée
+// readonly est le mot-clé qui permet de spécifier qu'une propriété d'un objet ne peut pas être modifié une fois initialisée
 
 // ici arr est en lecture seule, on ne doit pas modifier le tableau.
 // si on veut retourner un nouveau tableau en utilisant reverse() (qui modifie le tableau) on est obligé d'initaliser un nouveau tableau

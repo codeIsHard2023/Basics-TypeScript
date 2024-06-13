@@ -37,8 +37,6 @@ function add(a: number, b: number) {
 // console.log(add(3, 8));
 /****************************************** */
 
-// JS code transformation
-
 function hello(name: string) {
   return "Hello, " + name;
 }

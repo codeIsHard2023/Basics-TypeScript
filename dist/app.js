@@ -21,8 +21,8 @@ const decrementaion = (e) => {
         span.innerText = i.toString();
     }
 };
-increment === null || increment === void 0 ? void 0 : increment.addEventListener("click", incrementation);
-decrement === null || decrement === void 0 ? void 0 : decrement.addEventListener("click", decrementaion);
+increment?.addEventListener("click", incrementation);
+decrement?.addEventListener("click", decrementaion);
 /****************************************** */
 // Test adding numbers
 function add(a, b) {
@@ -30,7 +30,6 @@ function add(a, b) {
 }
 // console.log(add(3, 8));
 /****************************************** */
-// JS code transformation
 function hello(name) {
     return "Hello, " + name;
 }

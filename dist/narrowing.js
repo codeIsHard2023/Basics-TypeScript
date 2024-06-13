@@ -1,9 +1,9 @@
 "use strict";
 /** Narrowing ==> est le processus qui permet, via des conditions, de réduire les types possibles.
- * Le narrowing peut se faire grâce à plusieurs méthodes :
+  Le narrowing peut se faire grâce à plusieurs méthodes :
     typeof
     instanceof
-    l'égalité entre 2 union type qui ont des types en commun
+    l'égalité entre 2 unions type qui ont des types en commun
     L'opérateur in
     Certaines méthodes qui permettent de prédire le type : Array.isArray par exemple.
 */
