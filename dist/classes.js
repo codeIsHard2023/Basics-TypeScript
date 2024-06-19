@@ -116,4 +116,57 @@ class Child2Coordinate extends Coordinate {
         console.log(this.x);
     }
 }
+// changement du contexte du this
+class Subscriber {
+    on(name, cb) {
+        //ici, le mot-clé spéciale this, on modifie son sens et on dit que c'est quelque chose de type HTMLInputElement
+        this; // this ne fait plus la réference à une instance de la classe mais à un element HTML
+    }
+}
+// Utilisation this dans les types de retour
+class CollectionWithThisReturn {
+    items;
+    constructor(items) {
+        this.items = items;
+    }
+    add(item) {
+        // on specifie que la fonction retournera this. Dans ce cas la même instance est renvoyée
+        this.items.push(item);
+        return this;
+    }
+}
+const instanceCollectionWithThisReturn = new CollectionWithThisReturn(["1", 2]);
+const collectionTypeNumber = instanceCollectionWithThisReturn.add(3); //le type de collectionTypeNumber est le type de this
+// Les classes ne sont comparés que en terme de structure : deux classes similaires pourront fonctionner
+class PointCoordinate {
+    x = 0;
+    y = 0;
+}
+class PointGeometry {
+    x = 0;
+    y = 0;
+    surface = 0;
+}
+function getX(p) {
+    return p.x;
+}
+getX(new PointGeometry()); // ça fonctionne car la fonction getX attend quelque chose qui contient x et y et la class PointGeometry contient ces deux mêmes paramètres
+// Une class Abstrait : modèle de class qui ensuite peut être utilisée par d'autres classes; les enfants de cette class Abstraite hérite les propriétés et les methodes qui doivent être implementées par eux mêmes
+class Geometry {
+    x = 0;
+    y = 0;
+}
+class GeometryChild extends Geometry {
+    // GeometryChild doit donc implementer toutes les membres abstraits de la class Geometry
+    x = 2;
+    y = 3;
+    surface() {
+        return this.x * this.y;
+    }
+}
+// Methodes statics : pas forcement dans TS; on peut l'utiliser dans JS
+class GeometryStatic {
+    static origin = { x: 0, y: 0 };
+}
+GeometryStatic.origin; // static permet d'accéder à origin de cette façon
 /************************************/
